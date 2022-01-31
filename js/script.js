@@ -12,18 +12,22 @@ const root = new Vue({
             {
                 name: 'Michele',
                 avatar: '_1',
+                active: true,
             },
             {
                 name: 'Fabio',
                 avatar: '_2',
+                active: false,
             },
             {
                 name: 'Samuele',
                 avatar: '_3',
+                active: false,
             },
             {
                 name: 'Luisa',
                 avatar: '_4',
+                active: false,
             },
         ]
     },

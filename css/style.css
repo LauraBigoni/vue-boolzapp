@@ -1,7 +1,7 @@
 /* Generics */
 body {
     font-family: 'Questrial', sans-serif;
-    height: 100vh;
+    height: calc(100vh - 20px);
     background: linear-gradient(0deg, rgb(228, 226, 222) 88%, rgb(0,150,136) 88%);
 }
 
@@ -32,6 +32,11 @@ a:hover {
 .active {
     background-color: rgb(233,235,235);
 }
+
+.cs-border-right {
+    border-right: 1px solid rgb(0,150,136);
+}
+
 /* User */
 #user {
     background-color: rgb(228, 226, 222);
@@ -48,7 +53,7 @@ a:hover {
 /* Notifications */
 #notifications {
     background-color: rgb(142,218,252);
-    padding: 20px 10px;
+    padding: 15px 10px;
 }
 
 #notifications > div {
@@ -70,6 +75,10 @@ a:hover {
     padding: 10px;
 }
 
+#search input {
+    font-size: 14px;
+}
+
 .fa-search {
     color: rgb(177,177,177);
 }
@@ -79,7 +88,12 @@ a:hover {
 }
 
 /* Contacts */
+#contacts {
+    overflow-y: scroll;
+}
+
 #contacts .user-info {
     padding: 10px 20px;
     font-size: 1.1rem;
 }
+
