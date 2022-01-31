@@ -1,0 +1,5 @@
+/* Utils */
+body {
+    height: 100vh;
+    background: linear-gradient(0deg, rgba(228, 226, 222, 1) 90%, rgba(0,150,136, 1) 90%);
+}
