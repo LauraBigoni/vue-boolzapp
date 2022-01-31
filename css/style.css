@@ -11,8 +11,13 @@ body {
     background-color: rgb(255, 255, 255);
 }
 
-img {
+#user img {
     width: 60px;
+    border-radius: 50%;
+}
+
+#contacts img {
+    width: 70px;
     border-radius: 50%;
 }
 
@@ -24,6 +29,9 @@ a:hover {
     color: rgb(49, 49, 49);
 }
 
+.active {
+    background-color: rgb(233,235,235);
+}
 /* User */
 #user {
     background-color: rgb(228, 226, 222);
@@ -58,6 +66,7 @@ a:hover {
 
 /* search */
 #search {
+    background-color: ;
     padding: 10px;
 }
 
@@ -65,4 +74,12 @@ a:hover {
     color: rgb(177,177,177);
 }
 
+.border-custom {
+    border-color: rgb(206,212,218);
+}
+
 /* Contacts */
+#contacts .user-info {
+    padding: 10px 20px;
+    font-size: 1.1rem;
+}
