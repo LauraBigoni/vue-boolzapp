@@ -100,7 +100,7 @@ a:hover {
 
 /* Contacts */
 #contacts, #show-chat {
-    height: 50vh;
+    height: calc(100vh - 50px);
     overflow-y: scroll;
 }
 
