@@ -101,10 +101,12 @@ a:hover {
 /* header */
 header {
     padding: 10px;
+    font-size: 1.1rem;
 }
 
-.contact-info {
-    font-size: 1.1rem;
+header span {
+    color: rgb(167,152,140);
+    font-size: 14px;
 }
 
 /* Messages */
