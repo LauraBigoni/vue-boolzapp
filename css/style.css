@@ -56,3 +56,13 @@ a:hover {
     color: rgb(142,218,252);
 }
 
+/* search */
+#search {
+    padding: 10px;
+}
+
+.fa-search {
+    color: rgb(177,177,177);
+}
+
+/* Contacts */
