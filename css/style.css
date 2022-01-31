@@ -11,7 +11,7 @@ body {
     background-color: rgb(255, 255, 255);
 }
 
-#user img {
+#user img, header img {
     width: 60px;
     border-radius: 50%;
 }
@@ -43,7 +43,7 @@ a:hover {
     padding: 10px;
 }
 
-#user i {
+#user i, header i {
     font-size: 24px;
     color: rgb(177,177,177);
     padding: 0 10px;
@@ -75,7 +75,8 @@ a:hover {
     padding: 10px;
 }
 
-#search input {
+#search input, 
+#write-message input {
     font-size: 14px;
 }
 
@@ -88,7 +89,7 @@ a:hover {
 }
 
 /* Contacts */
-#contacts {
+#contacts, #show-chat {
     overflow-y: scroll;
 }
 
@@ -97,3 +98,62 @@ a:hover {
     font-size: 1.1rem;
 }
 
+/* header */
+header {
+    padding: 10px;
+}
+
+.contact-info {
+    font-size: 1.1rem;
+}
+
+/* Messages */
+#show-chat {
+    padding: 20px 0;
+    font-size: 14px;
+}
+
+div.col-8 {
+    background-image: url("img/wallpaper.jpg");
+}
+
+#show-chat span {
+    float: right;
+    font-size: 10px;
+}
+
+#messages-sent .sent {
+    background-color: rgb(213,249,186);
+    padding: 15px;
+    border-radius: 10px;
+}
+
+#messages-sent .received {
+    background-color: rgb(255, 255, 255);
+    padding: 15px;
+    border-radius: 10px;
+}
+
+.message.sent + .message.sent {
+    margin-top: 20px;
+}
+
+.message.received + .message.received {
+    margin-top: 20px;
+}
+
+/* footer */
+footer {
+    background-color: rgb(233,235,235);
+    padding: 10px;
+}
+
+#write-message input {
+    padding: 20px;
+}
+
+footer i {
+    color:rgb(107,115,118);
+    font-size: 24px;
+    padding: 0 10px;
+}
