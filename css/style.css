@@ -113,10 +113,6 @@ header {
     font-size: 14px;
 }
 
-div.col-8 {
-    background-image: url("img/wallpaper.jpg");
-}
-
 #show-chat span {
     float: right;
     font-size: 10px;
