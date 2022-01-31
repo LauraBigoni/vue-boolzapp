@@ -1,5 +1,22 @@
 /* Utils */
 body {
+    font-family: 'Questrial', sans-serif;
     height: 100vh;
-    background: linear-gradient(0deg, rgba(228, 226, 222, 1) 90%, rgba(0,150,136, 1) 90%);
+    background: linear-gradient(0deg, rgb(228, 226, 222) 88%, rgb(0,150,136) 88%);
+}
+
+.render-app {
+    margin: 20px 0;
+    height: calc(100vh - 50px);
+    background-color: rgb(255, 255, 255);
+}
+
+img {
+    width: 50px;
+    border-radius: 50%;
+}
+
+.user {
+    background-color: rgb(228, 226, 222);
+    padding: 10px;
 }
