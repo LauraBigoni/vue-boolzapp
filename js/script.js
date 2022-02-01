@@ -100,18 +100,19 @@ const root = new Vue({
             this.currentIndex = index;
         },
         getDate() {
-            let date = dayjs().get('year') + '/' + dayjs().get('month') + '/' + dayjs().get('date');
+            let date = dayjs().get('date') + '/' + (dayjs().get('month')+1) + '/' + dayjs().get('year');
             let time = dayjs().get('hour') + ":" + dayjs().get('minute') + ":" + dayjs().get('second');
             let dateTime = date + ' ' + time;
             return dateTime;
+            
         },
         addNewMessage() {
             const message = this.newMessage.trim();
             if (message) {
-                this.contacts[this.currentIndex].messages.push({ text: message, status: 'sent', date: (this.getDate) });
+                this.contacts[this.currentIndex].messages.push({ text: message, status: 'sent', date: this.getDate() });
             }
             this.newMessage = setTimeout(() => {
-                this.contacts[this.currentIndex].messages.push({ text: 'Ok', status: 'received', date: this.getDate });
+                this.contacts[this.currentIndex].messages.push({ text: 'Ok', status: 'received', date: this.getDate() });
                 console.log(this.automaticReply);
             }, 1000);
             this.newMessage = '';
