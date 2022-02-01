@@ -52,7 +52,7 @@
                         </div>
                     </section>
                     <section id="contacts" class="d-flex flex-column flex-grow-1">
-                        <div v-for="contact in contacts" :class="{active : contact.active}" class="user-info">
+                        <div v-for="(contact, index) in contacts" :class="{active : index === currentIndex}" class="user-info" @click="setActive(index)" role="button">
                             <img class="img-fluid" :src="'img/avatar' + contact.avatar + '.jpg'" :alt="contact.name">
                             <span class="ms-4 align-top"><strong>{{contact.name}}</strong></span>
                         </div>
@@ -73,21 +73,17 @@
                             <i class="fas fa-ellipsis-v"></i>
                         </div>
                     </header>
-                    <section id="show-chat" class="d-flex flex-column">
+                    <section id="show-chat" class="d-flex flex-column" >
                         <div class="messages-sent d-flex flex-column align-items-end">
-                            <div class="message sent col-5">
-                                <p class="m-0">Hai portato a spasso il cane?</p>
-                                <span class="text-right">10/01/2020 15:30:55</span>
-                            </div>
-                            <div class="message sent col-5">
-                                <p class="m-0">Ricordati di dargli da mangiare</p>
-                                <span class="text-right">10/01/2020 15:50:00</span>
+                            <div v-for="(message, index) in messages" :class="{sent : status === 'sent'}" class="message col-5">
+                                <p class="m-0">{{message.text}}</p>
+                                <span class="text-right">{{message.date}}</span>
                             </div>
                         </div>
                         <div class="messages-received d-flex flex-column align-items-start">
-                            <div class="message received col-5">
-                                <p class="m-0">Tutto fatto!</p>
-                                <span class="text-right">10/01/2020 16:15:22</span></span>
+                            <div v-for="(message, index) in messages" :class="{received : status === 'received'}" class="message col-5">
+                                <p class="m-0">{{message.text}}</p>
+                                <span class="text-right">{{message.date}}</span></span>
                             </div>
                         </div>
 

@@ -11,9 +11,8 @@
 
 body {
     font-family: 'Questrial', sans-serif;
-    height: 100vh;
+    height: calc(100vh - 20px);
     background: linear-gradient(0deg, rgb(228, 226, 222) 88%, rgb(0, 150, 136) 88%);
-    overflow-y: hidden;
 }
 
 .render-app {
