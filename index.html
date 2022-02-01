@@ -74,19 +74,12 @@
                         </div>
                     </header>
                     <section id="show-chat" class="d-flex flex-column" >
-                        <div class="messages-sent d-flex flex-column align-items-end">
-                            <div v-for="(message, index) in messages" :class="{sent : status === 'sent'}" class="message col-5">
+                        <div class="messages d-flex flex-column">
+                            <div v-for="(message, index) in contacts[currentIndex].messages" :class="[{ sent : status === sent }, {received : status === received}]" class="message col-5">
                                 <p class="m-0">{{message.text}}</p>
                                 <span class="text-right">{{message.date}}</span>
                             </div>
                         </div>
-                        <div class="messages-received d-flex flex-column align-items-start">
-                            <div v-for="(message, index) in messages" :class="{received : status === 'received'}" class="message col-5">
-                                <p class="m-0">{{message.text}}</p>
-                                <span class="text-right">{{message.date}}</span></span>
-                            </div>
-                        </div>
-
                     </section>
                     <footer id="write-message" class="d-flex align-items-center">
                         <i class="far fa-smile"></i>

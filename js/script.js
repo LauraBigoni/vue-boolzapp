@@ -94,6 +94,6 @@ const root = new Vue({
     methods: {
     setActive(index) {
         this.currentIndex = index;
-    }
+    },
     },
 });
