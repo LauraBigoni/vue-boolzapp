@@ -5,6 +5,7 @@ const root = new Vue({
     el: '#root',
     data: {
         newMessage: '',
+        automaticReply: 'Ok',
         currentIndex: 0,
         user: {
             name: 'Laura Bigoni',
@@ -101,6 +102,10 @@ const root = new Vue({
             if (message) {
                 this.contacts[this.currentIndex].messages.push({ text: message, status: 'sent', date: '10/01/2020 15:30:55' });
             }
+            this.newMessage = setTimeout(() => {
+                this.contacts[this.currentIndex].messages.push({ text: 'Ok', status: 'received', date: '10/01/2020 15:30:55' });
+                console.log(this.automaticReply);
+            }, 1000);
             this.newMessage = '';
         },
     },
