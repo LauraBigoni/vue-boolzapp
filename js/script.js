@@ -4,6 +4,7 @@ Vue.config.devtools = true;
 const root = new Vue({
     el: '#root',
     data: {
+        newMessage: '',
         currentIndex: 0,
         user: {
             name: 'Laura Bigoni',
@@ -92,8 +93,15 @@ const root = new Vue({
         ],
     },
     methods: {
-    setActive(index) {
-        this.currentIndex = index;
-    },
+        setActive(index) {
+            this.currentIndex = index;
+        },
+        addNewMessage() {
+            const message = this.newMessage.trim();
+            if (message) {
+                this.contacts[this.currentIndex].messages.push({ text: message, status: 'sent', date: '10/01/2020 15:30:55' });
+            }
+            this.newMessage = '';
+        },
     },
 });
