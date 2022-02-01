@@ -54,9 +54,15 @@
                         </div>
                     </section>
                     <section id="contacts" class="d-flex flex-column flex-grow-1">
-                        <div v-for="(contact, index) in contacts" :class="{active : index === currentIndex}" class="user-info" @click="setActive(index)" role="button">
-                            <img class="img-fluid" :src="'img/avatar' + contact.avatar + '.jpg'" :alt="contact.name">
-                            <span class="ms-4 align-top"><strong>{{contact.name}}</strong></span>
+                        <div v-for="(contact, index) in contacts" :class="{active : index === currentIndex}" class="user-info d-flex justify-content-between" @click="setActive(index)" role="button">
+                            <div>
+                                <img class="img-fluid" :src="'img/avatar' + contact.avatar + '.jpg'" :alt="contact.name">
+                                <span class="ms-4 align-top"><strong>{{contact.name}}</strong></span>
+                            </div>
+                            <div class="d-flex flex-column align-items-end">
+                                <span class="last-login">Oggi</span>
+                                <i class="text-muted fas fa-thumbtack"></i></i>
+                            </div>
                         </div>
                     </section>
                 </div>
@@ -85,6 +91,7 @@
                     </section>
                     <footer id="write-message" class="d-flex align-items-center">
                         <i class="far fa-smile"></i>
+                        <i class="fas fa-paperclip"></i>
                         <div class="input-group px-3">
                             <input type="text" class="form-control" placeholder="Scrivi un messaggio" v-model="newMessage" @keyup.enter="addNewMessage">
                         </div>

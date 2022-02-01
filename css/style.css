@@ -14,6 +14,7 @@ body {
     height: 100vh;
     padding: 20px 0;
     background: linear-gradient(0deg, rgb(228, 226, 222) 88%, rgb(0, 150, 136) 88%);
+    background-repeat: no-repeat;
 }
 
 .render-app {
@@ -101,7 +102,7 @@ a:hover {
 
 /* Contacts */
 #contacts {
-    height: 70vh;
+    height: 50vh;
     overflow-y: scroll;
     background-color: rgb(255, 255, 255);
 }
@@ -114,6 +115,10 @@ a:hover {
 #contacts .user-info {
     padding: 10px 20px;
     font-size: 1.1rem;
+}
+
+.last-login, .fa-thumbtack {
+    font-size: 12px;
 }
 
 /* header */
