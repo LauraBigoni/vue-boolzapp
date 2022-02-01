@@ -1,6 +1,8 @@
 console.log('Vue ok', Vue);
 Vue.config.devtools = true;
 
+dayjs.extend(dayjs_plugin_customParseFormat);
+
 const root = new Vue({
     el: '#root',
     data: {
@@ -97,13 +99,19 @@ const root = new Vue({
         setActive(index) {
             this.currentIndex = index;
         },
+        getDate() {
+            let date = dayjs().get('year') + '/' + dayjs().get('month') + '/' + dayjs().get('date');
+            let time = dayjs().get('hour') + ":" + dayjs().get('minute') + ":" + dayjs().get('second');
+            let dateTime = date + ' ' + time;
+            return dateTime;
+        },
         addNewMessage() {
             const message = this.newMessage.trim();
             if (message) {
-                this.contacts[this.currentIndex].messages.push({ text: message, status: 'sent', date: '10/01/2020 15:30:55' });
+                this.contacts[this.currentIndex].messages.push({ text: message, status: 'sent', date: (this.getDate) });
             }
             this.newMessage = setTimeout(() => {
-                this.contacts[this.currentIndex].messages.push({ text: 'Ok', status: 'received', date: '10/01/2020 15:30:55' });
+                this.contacts[this.currentIndex].messages.push({ text: 'Ok', status: 'received', date: this.getDate });
                 console.log(this.automaticReply);
             }, 1000);
             this.newMessage = '';
