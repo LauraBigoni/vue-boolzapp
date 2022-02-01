@@ -11,14 +11,13 @@
 
 body {
     font-family: 'Questrial', sans-serif;
-    height: calc(100vh - 20px);
+    height: 100vh;
+    padding: 20px 0;
     background: linear-gradient(0deg, rgb(228, 226, 222) 88%, rgb(0, 150, 136) 88%);
 }
 
 .render-app {
-    margin: 20px 0;
-    height: 95vh;
-    background-color: rgb(255, 255, 255);
+    height: 90vh;
 }
 
 #user img, header img {
@@ -101,8 +100,14 @@ a:hover {
 }
 
 /* Contacts */
-#contacts, #show-chat {
-    height: 100%;
+#contacts {
+    height: 70vh;
+    overflow-y: scroll;
+    background-color: rgb(255, 255, 255);
+}
+
+#show-chat {
+    height:calc(80vh - 20px);
     overflow-y: scroll;
 }
 

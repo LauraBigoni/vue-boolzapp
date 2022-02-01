@@ -7,7 +7,7 @@ const root = new Vue({
     el: '#root',
     data: {
         newMessage: '',
-        automaticReply: 'Ok',
+        automaticReply: ['Ok', 'Non posso' , 'Più tardi' , 'Si' , 'No' , 'Sei sicuro?' , 'Forse si...' , 'Non ci posso credere!' , "E' tardi" , 'Buongiorno!' , "E' stato un piacere aiutarti" , 'Vuoi che ti racconti una barzelletta?' , 'Buonanotte' , 'Non ho capito..' , 'E se poi te ne penti?' , 'Lascia stare' , 'Non lo farò mai' , 'Come dici tu' , 'Lol'],
         currentIndex: 0,
         user: {
             name: 'Laura Bigoni',
@@ -99,6 +99,10 @@ const root = new Vue({
         setActive(index) {
             this.currentIndex = index;
         },
+        randomReply() {
+            const randomMessage = this.automaticReply[Math.floor(Math.random() * this.automaticReply.length)];
+            return randomMessage;
+        },
         getDate() {
             let date = dayjs().get('date') + '/' + (dayjs().get('month')+1) + '/' + dayjs().get('year');
             let time = dayjs().get('hour') + ":" + dayjs().get('minute') + ":" + dayjs().get('second');
@@ -112,8 +116,7 @@ const root = new Vue({
                 this.contacts[this.currentIndex].messages.push({ text: message, status: 'sent', date: this.getDate() });
             }
             this.newMessage = setTimeout(() => {
-                this.contacts[this.currentIndex].messages.push({ text: 'Ok', status: 'received', date: this.getDate() });
-                console.log(this.automaticReply);
+                this.contacts[this.currentIndex].messages.push({ text: this.randomReply(), status: 'received', date: this.getDate() });
             }, 1000);
             this.newMessage = '';
         },
