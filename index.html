@@ -50,13 +50,15 @@
                     <section id="search" class="position-relative">
                         <div class="input-group">
                             <i class="fas fa-search"></i>
-                            <input type="text" class="form-control" placeholder="Cerca o inizia una nuova chat">
+                            <input type="text" class="form-control" placeholder="Cerca o inizia una nuova chat" v-model="search" @keyup="filterContacts">
                         </div>
                     </section>
                     <section id="contacts" class="d-flex flex-column flex-grow-1">
-                        <div v-for="(contact, index) in contacts" :class="{active : index === currentIndex}" class="user-info d-flex justify-content-between" @click="setActive(index)" role="button">
+                        <div v-if="contact.visible" v-for="(contact, index) in contacts" :class="{active : index === currentIndex}"
+                            class="user-info d-flex justify-content-between" @click="setActive(index)" role="button">
                             <div>
-                                <img class="img-fluid" :src="'img/avatar' + contact.avatar + '.jpg'" :alt="contact.name">
+                                <img class="img-fluid" :src="'img/avatar' + contact.avatar + '.jpg'"
+                                    :alt="contact.name">
                                 <span class="ms-4 align-top"><strong>{{contact.name}}</strong></span>
                             </div>
                             <div class="d-flex flex-column align-items-end">
@@ -69,7 +71,8 @@
                 <div class="col-8 p-0 d-flex flex-column">
                     <header class="active d-flex justify-content-between align-items-center">
                         <div class="contact-info">
-                            <img class="img-fluid" :src="'img/avatar' + contacts[currentIndex].avatar + '.jpg'" :alt="contacts.name">
+                            <img class="img-fluid" :src="'img/avatar' + contacts[currentIndex].avatar + '.jpg'"
+                                :alt="contacts.name">
                         </div>
                         <div class="align-items-center flex-grow-1 ps-4">
                             <p class="m-0"><strong>{{contacts[currentIndex].name}}</strong></p>
@@ -81,9 +84,14 @@
                             <i class="fas fa-ellipsis-v"></i>
                         </div>
                     </header>
-                    <section id="show-chat" class="d-flex flex-column" >
+                    <section id="show-chat" class="d-flex flex-column">
                         <div class="messages d-flex flex-column">
-                            <div v-for="(message, index) in contacts[currentIndex].messages" :class="{sent : message.status === 'sent', received : message.status === 'received'}" class="message col-5">
+                            <div v-for="(message, index) in contacts[currentIndex].messages" :class="message.status"
+                                class="message col-5">
+                                <!-- oppure 
+                                    {sent : message.status === 'sent', received : message.status === 'received'} 
+                                oppure 
+                                    {message.status ==='sent' ? 'sent' : 'received',}-->
                                 <p class="m-0">{{message.text}}</p>
                                 <span class="text-right">{{message.date}}</span>
                             </div>
@@ -93,7 +101,8 @@
                         <i class="far fa-smile"></i>
                         <i class="fas fa-paperclip"></i>
                         <div class="input-group px-3">
-                            <input type="text" class="form-control" placeholder="Scrivi un messaggio" v-model="newMessage" @keyup.enter="addNewMessage">
+                            <input type="text" class="form-control" placeholder="Scrivi un messaggio"
+                                v-model="newMessage" @keyup.enter="addNewMessage">
                         </div>
                         <i class="fas fa-microphone"></i>
                     </footer>

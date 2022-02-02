@@ -7,8 +7,9 @@ const root = new Vue({
     el: '#root',
     data: {
         newMessage: '',
-        automaticReply: ['Ok', 'Non posso' , 'Più tardi' , 'Si' , 'No' , 'Sei sicuro?' , 'Forse si...' , 'Non ci posso credere!' , "E' tardi" , 'Buongiorno!' , "E' stato un piacere aiutarti" , 'Vuoi che ti racconti una barzelletta?' , 'Buonanotte' , 'Non ho capito..' , 'E se poi te ne penti?' , 'Lascia stare' , 'Non lo farò mai' , 'Come dici tu' , 'Lol'],
+        automaticReply: ['Ok', 'Non posso', 'Più tardi', 'Si', 'No', 'Sei sicuro?', 'Forse si...', 'Non ci posso credere!', "E' tardi", 'Buongiorno!', "E' stato un piacere aiutarti", 'Vuoi che ti racconti una barzelletta?', 'Buonanotte', 'Non ho capito..', 'E se poi te ne penti?', 'Lascia stare', 'Non lo farò mai', 'Come dici tu', 'Lol'],
         currentIndex: 0,
+        search: '',
         user: {
             name: 'Laura Bigoni',
             avatar: '_io'
@@ -104,14 +105,16 @@ const root = new Vue({
             return randomMessage;
         },
         getDate() {
-            let date = dayjs().get('date') + '/' + (dayjs().get('month')+1) + '/' + dayjs().get('year');
-            let time = dayjs().get('hour') + ":" + dayjs().get('minute') + ":" + dayjs().get('second');
-            let dateTime = date + ' ' + time;
+            const date = dayjs().get('date') + '/' + (dayjs().get('month') + 1) + '/' + dayjs().get('year');
+            const time = dayjs().get('hour') + ":" + dayjs().get('minute') + ":" + dayjs().get('second');
+            const dateTime = date + ' ' + time;
             return dateTime;
-            
+            // dayjs().format('DD/MM/YYY HH:mm:ss');
+
         },
         addNewMessage() {
             const message = this.newMessage.trim();
+            if (!this.newMessage) return;
             if (message) {
                 this.contacts[this.currentIndex].messages.push({ text: message, status: 'sent', date: this.getDate() });
             }
@@ -120,5 +123,12 @@ const root = new Vue({
             }, 1000);
             this.newMessage = '';
         },
+        filterContacts() {
+            const search = this.search;
+            this.contacts.forEach(contact => {
+                contact.visible = contact.name.toLowerCase().includes(search);
+            });
+        },
     },
 });
+
