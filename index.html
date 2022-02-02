@@ -69,19 +69,25 @@
                     <!-- # SEZIONE CONTATTI -->
                     <section id="contacts" class="d-flex flex-column flex-grow-1">
                         <div v-if="contact.visible" v-for="(contact, index) in contacts"
-                            :class="{active : index === currentIndex}" class="user-info d-flex justify-content-between align-items-center"
+                            :class="{active : index === currentIndex}"
+                            class="user-info d-flex justify-content-between align-items-center"
                             @click="setActive(index)" role="button">
                             <div>
                                 <img class="img-fluid" :src="'img/avatar' + contact.avatar + '.jpg'"
                                     :alt="contact.name">
-                                </div>
-                                <div class="d-flex flex-column w-100 ms-4">
-                                    <span ><strong>{{contact.name}}</strong>
+                            </div>
+                            <div class="w-100 ms-4 d-flex flex-column">
+                                <div class="d-flex justify-content-between">
+                                    <span><strong>{{contact.name}}</strong>
                                     </span>
-                                    <span class="last-login">{{showLastMessage(index)}}</span>
+                                    <span class="last-login">{{contact.messages[contact.messages.length -
+                                        1].date}}</span>
                                 </div>
-                            <div class="d-flex flex-column align-items-end">
-                                <i class="text-muted fas fa-thumbtack"></i></i>
+                                <div class="d-flex justify-content-between">
+                                    <span class="last-login">{{contact.messages[contact.messages.length -
+                                        1].text}}</span>
+                                    <i class="text-muted fas fa-thumbtack"></i>
+                                </div>
                             </div>
                         </div>
                     </section>
@@ -117,7 +123,8 @@
                                     <i class="dropdown-toggle" type="button" data-toggle="dropdown"></i>
                                     <div class="dropdown-menu align-self-end">
                                         <button class="dropdown-item" type="button">Info messaggio</button>
-                                        <button class="dropdown-item" type="button" @click="deleteMessage(index)">Elimina
+                                        <button class="dropdown-item" type="button"
+                                            @click="deleteMessage(index)">Elimina
                                             messaggio</button>
                                     </div>
                                 </div>
