@@ -134,7 +134,7 @@ const root = new Vue({
         },
         showLastMessage() {
             const lastMessage = this.lastMessage;
-            this.contacts.forEach(contact => {
+            this.contacts[this.currentIndex].messages.forEach(contact => {
                 this.lastMessage = this.contacts[this.currentIndex].messages[this.contacts[this.currentIndex].messages.length - 1].text;
                 console.log(lastMessage);
                 return lastMessage;
