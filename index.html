@@ -114,14 +114,14 @@
                                     <i class="dropdown-toggle" type="button" data-toggle="dropdown"></i>
                                     <div class="dropdown-menu align-self-end">
                                         <button class="dropdown-item" type="button">Info messaggio</button>
-                                        <button class="dropdown-item" type="button" @click="deleteTask(index)">Elimina
+                                        <button class="dropdown-item" type="button" @click="deleteMessage(index)">Elimina
                                             messaggio</button>
                                     </div>
                                 </div>
                                 <span class="align-self-end">{{message.date}}</span>
                             </div>
                             <div v-if="contacts[currentIndex].messages.length === 0" class="text-center text-muted">
-                                <p >Non hai ancora nessun messaggio in questa chat..</p>
+                                <p>Non hai ancora nessun messaggio in questa chat..</p>
                             </div>
                         </div>
                     </section>

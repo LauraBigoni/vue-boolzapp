@@ -129,7 +129,7 @@ const root = new Vue({
                 contact.visible = contact.name.toLowerCase().includes(search);
             });
         },
-        deleteTask(index) {
+        deleteMessage(index) {
             this.contacts[this.currentIndex].messages.splice(index, 1);
         },
     },
