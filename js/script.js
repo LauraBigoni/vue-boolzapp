@@ -133,8 +133,12 @@ const root = new Vue({
             this.contacts[this.currentIndex].messages.splice(index, 1);
         },
         showLastMessage() {
-            const lastMessage = this.contacts[this.currentIndex].messages[this.contacts[this.currentIndex].messages.length - 1].text
-            return lastMessage;
+            const lastMessage = this.lastMessage;
+            this.contacts.forEach(contact => {
+                this.lastMessage = this.contacts[this.currentIndex].messages[this.contacts[this.currentIndex].messages.length - 1].text;
+                console.log(lastMessage);
+                return lastMessage;
+            });
         },
     },
 });
