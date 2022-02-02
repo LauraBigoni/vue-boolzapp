@@ -38,6 +38,7 @@
         <div id="root">
             <div class="row render-app">
                 <div class="col-4 p-0 d-flex flex-column">
+                    <!-- # SEZIONE UTENTE -->
                     <section id="user" class="d-flex justify-content-between align-items-center">
                         <div class="user-info">
                             <img class="img-fluid" :src="'img/avatar' + user.avatar + '.jpg'" :alt="user.name">
@@ -49,6 +50,7 @@
                             <i class="fas fa-ellipsis-v"></i>
                         </div>
                     </section>
+                    <!-- # SEZIONE NOTIFICHE -->
                     <section id="notifications" class="d-flex justify-content-start align-items-center">
                         <i class="fas fa-bell-slash"></i>
                         <div>
@@ -56,6 +58,7 @@
                             <a href="#">Attiva notifiche desktop</a>
                         </div>
                     </section>
+                    <!-- # SEZIONE RICERCA -->
                     <section id="search" class="position-relative">
                         <div class="input-group">
                             <i class="fas fa-search"></i>
@@ -63,6 +66,7 @@
                                 v-model="search" @keyup="filterContacts">
                         </div>
                     </section>
+                    <!-- # SEZIONE CONTATTI -->
                     <section id="contacts" class="d-flex flex-column flex-grow-1">
                         <div v-if="contact.visible" v-for="(contact, index) in contacts"
                             :class="{active : index === currentIndex}" class="user-info d-flex justify-content-between"
@@ -79,6 +83,7 @@
                         </div>
                     </section>
                 </div>
+                <!-- # HEADER SEZIONE CHAT  -->
                 <div class="col-8 p-0 d-flex flex-column">
                     <header class="active d-flex justify-content-between align-items-center">
                         <div class="contact-info">
@@ -95,28 +100,32 @@
                             <i class="fas fa-ellipsis-v"></i>
                         </div>
                     </header>
+                    <!-- # SEZIONE CHAT -->
                     <section id="show-chat" class="d-flex flex-column">
                         <div class="messages d-flex flex-column">
                             <div v-for="(message, index) in contacts[currentIndex].messages" :class="message.status"
                                 class="message col-5 d-flex flex-column">
                                 <!-- oppure 
                                     {sent : message.status === 'sent', received : message.status === 'received'} 
-                                oppure 
+                                o: 
                                     {message.status ==='sent' ? 'sent' : 'received',}-->
                                 <div class="dropdown d-flex justify-content-between">
                                     <p class="m-0">{{message.text}}</p>
                                     <i class="dropdown-toggle" type="button" data-toggle="dropdown"></i>
                                     <div class="dropdown-menu align-self-end">
                                         <button class="dropdown-item" type="button">Info messaggio</button>
-                                        <button class="dropdown-item" type="button">Elimina messaggio</button>
+                                        <button class="dropdown-item" type="button" @click="deleteTask(index)">Elimina
+                                            messaggio</button>
                                     </div>
                                 </div>
-                                
                                 <span class="align-self-end">{{message.date}}</span>
-
+                            </div>
+                            <div v-if="contacts[currentIndex].messages.length === 0" class="text-center text-muted">
+                                <p >Non hai ancora nessun messaggio in questa chat..</p>
                             </div>
                         </div>
                     </section>
+                    <!-- # FOOTER SEZIONE CHAT -->
                     <footer id="write-message" class="d-flex align-items-center">
                         <i class="far fa-smile"></i>
                         <i class="fas fa-paperclip"></i>
